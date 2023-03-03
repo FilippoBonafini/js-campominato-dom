@@ -23,17 +23,20 @@ function myCreateElement(htmlElement,className1,className2='',htmlValue){
 // FUNZIONE AL CLICK DELL'ELEMENTO 
 function game(element,arrayBomb,htmlValue){
     // VERIFICO CHE IL NUMERO NON SIA GIA PRESENTE NELL'ARRAY 
-    if (arrayBomb.indexOf(htmlValue) === -1 ){
+    if ((arrayBomb.indexOf(htmlValue) === -1) && (selectedElement.includes(htmlValue) === false)){
         element.classList.add('modeSelected');
         console.log(htmlValue);
         score++
         scoreElement.innerHTML=(score)
-
+        selectedElement.push(htmlValue)
         if (score === (cellNumber - arrayBomb.length)){
             hoverContent.classList.remove('hidden');
             winImg.classList.remove('hidden')
         }
-    }else{
+    }
+    else if(selectedElement.includes(htmlValue) === true){}
+    else{
+
         for( let i = 0; i<arrayBomb.length; i++){
            element = document.querySelector('.cell-'+arrayBomb[i])
            element.classList.add('loseCell')
@@ -42,12 +45,7 @@ function game(element,arrayBomb,htmlValue){
         }
         hoverContent.classList.remove('hidden');
         loseImg.classList.remove('hidden')
-
     }
-}
-
-function winSituation(score,arrayBomb){
-
 }
 
 
@@ -96,6 +94,7 @@ function randomNumbers (numeroDiValori,max,min,arrayDiDestinazione){
 // ----
 // MAIN
 // ----
+
 let score = 0;
 
 // 1= easy, 2= normal, 3 = hard 
@@ -104,6 +103,7 @@ let situation;
 
 let cellNumber;
 
+let selectedElement=[];
 
 const containerBoard = document.querySelector('.board');
 const startGame = document.querySelector('.startMenu');
