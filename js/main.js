@@ -21,8 +21,7 @@ function myCreateElement(htmlElement,className1,className2='',htmlValue){
 
     // aggiunge l'evento a ogni cella: scatena la funzione GAME
     element.addEventListener('click', function gameCalcoulator(){
-        game(element,bombCell,htmlValue)   
-        bombNumber(element,bombCell,htmlValue)    
+        game(element,bombCell,htmlValue);  
     })
 
     // DA COME RISULTATO L'ELEMENTO HTML CON LE CLASSI AGGIUNTE PRIMA
@@ -41,19 +40,19 @@ function game(element,arrayBomb,htmlValue){
         console.log(htmlValue);
 
         // incremento il punteggio
-        score++
+        score++;
 
         // scrivo il punteggio nella variabile score element 
-        scoreElement.innerHTML=(score)
+        scoreElement.innerHTML=(score);
 
         // aggiungo la cella selezionata nell'array delle celle selezionate 
-        selectedElement.push(htmlValue)
+        selectedElement.push(htmlValue);
 
         // se il punteggio è uguale al numero di celle - il numero di bome 
         // VINCI
         if (score === (cellNumber - arrayBomb.length)){
             hoverContent.classList.remove('hidden');
-            winImg.classList.remove('hidden')
+            winImg.classList.remove('hidden');
         }
     }
 
@@ -63,14 +62,14 @@ function game(element,arrayBomb,htmlValue){
     else{
         // MOSTRA TUTTE LE BOMBE 
         for( let i = 0; i<arrayBomb.length; i++){
-           element = document.querySelector('.cell-'+arrayBomb[i])
-           element.classList.add('loseCell')
-           const elementBomb = document.querySelector('.cell-'+arrayBomb[i]+' i') 
-           elementBomb.classList.remove('hidden')
+           element = document.querySelector('.cell-'+arrayBomb[i]);
+           element.classList.add('loseCell');
+           const elementBomb = document.querySelector('.cell-'+arrayBomb[i]+' i') ;
+           elementBomb.classList.remove('hidden');
         }
         // PERDI 
         hoverContent.classList.remove('hidden');
-        loseImg.classList.remove('hidden')
+        loseImg.classList.remove('hidden');
     }
 }
 
@@ -107,7 +106,7 @@ function randomNumber(min, max){
 
 // FUNZIONI CHE CREA UN ARRAY DI X NUMERI CASUALI E ASSEGNA
 function randomNumbers (numeroDiValori,max,min,arrayDiDestinazione){
-    arrayDiDestinazione.length = 0
+    arrayDiDestinazione.length = 0;
     while(numeroDiValori > arrayDiDestinazione.length){
         let number = randomNumber(min, max);
         if (arrayDiDestinazione.indexOf(number) === -1 ){
@@ -153,7 +152,7 @@ const headerButtonEasy = document.getElementById('easyButton');
 const headerButtonNormal = document.getElementById('normalButton');
 const headerButtonHard = document.getElementById('hardButton');
     //schermata nascosta, immagini win e lose e bottone per ricominciare
-const hoverContent = document.getElementById('hoverContent')
+const hoverContent = document.getElementById('hoverContent');
 const loseImg = document.getElementById('loseScreen');
 const winImg = document.getElementById('winScreen');
 const repetButton = document.querySelector('.repet');
@@ -179,14 +178,14 @@ headerButtonEasy.addEventListener('click',function(){
     cellNumber = 100;
 
     // IMPOSTO IL PUNTEGGIO A 0
-    score=0
+    score=0;
 
     // CREO LA TABELLA 
     createTable(cellNumber,containerBoard,'easy');
 
     // DICO DOVE SARANNO LE BOMBE 
     randomNumbers (16,cellNumber,1,bombCell);
-    console.log(bombCell)
+    console.log(bombCell);
 
 
 })
@@ -194,21 +193,21 @@ headerButtonEasy.addEventListener('click',function(){
 // BOTTONE PER INIZIARE IL GIOCO IN MODALITA' MEDIA
 headerButtonNormal.addEventListener('click',function(){
     // RIMUOV CLASSI INIZIALI
-    myRemoveClass (containerBoardMain,classHidden)
-    myRemoveClass (menuHeader,classInitialMenu)
+    myRemoveClass (containerBoardMain,classHidden);
+    myRemoveClass (menuHeader,classInitialMenu);
 
     // IMPOSTO LA MODALITA'
     cellNumber = 81;
 
     // IMPOSTO IL PUNTEGGIO A 0
-    score=0
+    score=0;
 
     // CREO LA TABELLA 
     createTable(cellNumber,containerBoard,'normal');
 
     // DICO DOVE SARANNO LE BOMBE 
     randomNumbers (16,cellNumber,1,bombCell);
-    console.log(bombCell)
+    console.log(bombCell);
 
 
 })
@@ -216,21 +215,21 @@ headerButtonNormal.addEventListener('click',function(){
 // BOTTONE PER INIZIARE IL GIOCO IN MODALITA' DIFFICILE NN
 headerButtonHard.addEventListener('click',function(){
     // RIMUOV CLASSI INIZIALI
-    myRemoveClass (containerBoardMain,classHidden)
-    myRemoveClass (menuHeader,classInitialMenu)
+    myRemoveClass (containerBoardMain,classHidden);
+    myRemoveClass (menuHeader,classInitialMenu);
 
     // IMPOSTO LA MODALITA'
     cellNumber= 49;
 
     // IMPOSTO IL PUNTEGGIO A 0
-    score=0
+    score=0;
 
     // CREO LA TABELLA 
     createTable(cellNumber,containerBoard,'hard');
 
     // DICO DOVE SARANNO LE BOMBE 
     randomNumbers (16,cellNumber,1,bombCell);
-    console.log(bombCell)
+    console.log(bombCell);
 
     
 })
@@ -240,8 +239,8 @@ headerButtonHard.addEventListener('click',function(){
 // DEBUG
 debug.addEventListener('click',function(){
     for( let i = 0; i<bombCell.length; i++){
-        const elementBomb = document.querySelector('.cell-'+bombCell[i]+' i') 
-        elementBomb.classList.toggle('hidden')
+        const elementBomb = document.querySelector('.cell-'+bombCell[i]+' i') ;
+        elementBomb.classList.toggle('hidden');
      }
 
 })
