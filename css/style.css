@@ -1,10 +1,16 @@
+/* ---------- */
 /* RESET */
+/* ---------- */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none;
 }
+
+/* ---------- */
+/* COMMON */
+/* ---------- */
 
 .hidden{
     display: none;
@@ -30,6 +36,11 @@ header, footer{
     background-color: rgb(218, 218, 218);
     padding: 20px;
 }
+
+
+/* ---------- */
+/* HEADER  */
+/* ---------- */
 
 header .green{
     color: #00e165;
@@ -83,6 +94,9 @@ header img{
     height: 60px;
 }
 
+/* ---------- */
+/* MENU NASCOSTO */
+/* ---------- */
 
 #hoverContent{
     background-color: rgba(0, 0, 0, 0.342);
@@ -104,7 +118,7 @@ header img{
 .hoverBody{
     width: 500px;
     height: 400px;
-    background-color: rgba(233, 233, 233, 0.98);
+    background-color: #ffffffec;
     position: relative;
     display: flex;
     align-items: center;
@@ -136,6 +150,17 @@ header img{
     color:#00e165 ;
 }
 
+/* ---------- */
+/* MAIN  */
+/* ---------- */
+
+main{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .board .cell.modeSelected{
     background-color: rgba(0, 0, 0, 0.818);
     color: white;
@@ -151,13 +176,6 @@ header img{
     color: white;
     border: none;
     cursor: auto;
-}
-
-main{
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .board{
@@ -182,10 +200,6 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* DEBUG */
-    width: calc(100% /10 - 5px);
-    height:calc(100% /10 - 5px);
-    /* DEBUG */
 }
 
 .board .cell:hover{
@@ -236,6 +250,10 @@ main{
     position: relative;
     z-index: 20;
 }
+
+/* ---------- */
+/* FOOTER  */
+/* ---------- */
 
 footer{
     display: flex;
