@@ -192,6 +192,111 @@ headerButtonEasy.addEventListener('click',function(){
     randomNumbers (16,cellNumber,1,bombCell);
     console.log(bombCell);
 
+    for (let i=0;i<bombCell.length; i++){
+        const bombpos = bombCell[i]
+        let element = document.querySelector('.cell-'+bombpos);
+
+        console.log(element)
+        const pos1 = bombpos-11;
+        const pos2 = bombpos-10;
+        const pos3 = bombpos-9;
+        const pos4 = bombpos-1;
+        const pos5 = bombpos+1;
+        const pos6 = bombpos+9;
+        const pos7 = bombpos+10;
+        const pos8 = bombpos+11;
+        
+        const border = [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,11,21,31,41,51,61,71,81,91,92,93,94,95,96,97,98,99]
+        const borderTop = [2,3,4,5,6,7,8,9]
+        const borderDestro = [20,30,40,50,60,70,80,90]
+        const borderSinistro = [11,21,31,41,51,61,71,81,91]
+        const borderBot = [91,92,93,94,95,96,97,98,99]
+        const altoSinistra = [1]
+        const altoDestra = [10]
+        const bassoSinistra = [91]
+        const bassoDestra = [100]
+
+        let element1 = document.querySelector('.cell-'+ pos1 );
+        let element2 = document.querySelector('.cell-'+ pos2 );
+        let element3 = document.querySelector('.cell-'+ pos3 );
+        let element4 = document.querySelector('.cell-'+ pos4 );
+        let element5 = document.querySelector('.cell-'+ pos5 );
+        let element6 = document.querySelector('.cell-'+ pos6 );
+        let element7 = document.querySelector('.cell-'+ pos7 );
+        let element8 = document.querySelector('.cell-'+ pos8 );
+
+        let a = '<i class="fa-solid fa-exclamation "></i>';
+
+        if (border.includes(bombpos)===false){
+    
+            console.log(element1)
+            element1.innerHTML+=a
+            element2.innerHTML+=a
+            element3.innerHTML+=a
+            element4.innerHTML+=a
+            element5.innerHTML+=a
+            element6.innerHTML+=a
+            element7.innerHTML+=a
+            element8.innerHTML+=a
+            
+        }
+        else if (altoSinistra.includes(bombpos)){
+            element5.innerHTML+=a
+            element7.innerHTML+=a
+            element8.innerHTML+=a
+        }
+        else if (altoDestra.includes(bombpos)){
+            element4.innerHTML+=a
+            element7.innerHTML+=a
+            element6.innerHTML+=a
+        }
+        else if (bassoSinistra.includes(bombpos)){
+            element2.innerHTML+=a
+            element3.innerHTML+=a
+            element5.innerHTML+=a
+        } 
+        else if (bassoDestra.includes(bombpos)){
+            element1.innerHTML+=a
+            element2.innerHTML+=a
+            element4.innerHTML+=a
+        }
+        else if (borderTop.includes(bombpos)){
+            element4.innerHTML+=a
+            element5.innerHTML+=a
+            element6.innerHTML+=a
+            element7.innerHTML+=a
+            element8.innerHTML+=a
+        }
+        else if (borderDestro.includes(bombpos)){
+            element1.innerHTML+=a
+            element2.innerHTML+=a
+            element4.innerHTML+=a
+            element6.innerHTML+=a
+            element7.innerHTML+=a
+        }
+        else if (borderSinistro.includes(bombpos)){
+            element2.innerHTML+=a
+            element3.innerHTML+=a
+            element5.innerHTML+=a
+            element7.innerHTML+=a
+            element8.innerHTML+=a
+        }
+        else if (borderBot.includes(bombpos)){
+            element1.innerHTML+=a
+            element2.innerHTML+=a
+            element3.innerHTML+=a
+            element4.innerHTML+=a
+            element5.innerHTML+=a
+        }
+       
+
+        
+        for( let i = 0; i<bombCell.length; i++){
+            element = document.querySelector('.cell-'+bombCell[i]);
+            element.innerHTML = ('<i class="fa-solid fa-bomb hidden"></i>');           
+         }
+    }
+
 })
 
 // BOTTONE PER INIZIARE IL GIOCO IN MODALITA' MEDIA
